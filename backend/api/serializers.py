@@ -34,3 +34,9 @@ class VoteRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = VoteRecord
         fields = '__all__'
+
+class SubmitVoteSerializer(serializers.Serializer):
+    student_id = serializers.CharField()
+    token = serializers.CharField()
+    election_id = serializers.IntegerField()
+    selections = serializers.ListField(child=serializers.IntegerField())
